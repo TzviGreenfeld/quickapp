@@ -1,0 +1,12 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"  # Maps host port 3000 to container port 3000
+    # environment:
+      # - HOST=0.0.0.0  # Allows the app to be accessible from outside the container
+    volumes:
+      - .:/app  # Mounts the current directory to the /app directory in the container for live updates
+    command: ["npm", "start"]  # Starts the React app
